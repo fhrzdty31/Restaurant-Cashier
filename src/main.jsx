@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client'
 import App from './App'
 
 import axios from 'axios'
-import { API_URL } from './utils/constants'
+import { LOCAL_API_URL } from './utils/constants'
 
-axios.defaults.baseURL = API_URL
+axios.defaults.baseURL = LOCAL_API_URL
 
 import 'bootstrap/dist/js/bootstrap.min.js'
 import 'bootstrap/dist/css/bootstrap.min.css'
