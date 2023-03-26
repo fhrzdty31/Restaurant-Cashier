@@ -1,15 +1,13 @@
+import { Link } from "react-router-dom"
+
 const nav = [
-    {
-        name: 'Home',
-        path: ''
-    },
     {
         name: 'Product',
         path: ''
     },
     {
-        name: 'About',
-        path: ''
+        name: 'Success',
+        path: '/success'
     }
 ]
 
@@ -26,10 +24,23 @@ const Nav = () => (
     <div className="navbar-nav">
         {nav.map(
             (nav, index) => (
-                <a key={index} href={nav.path} className="nav-link active">{nav.name}</a>
+                <Link key={index} to={nav.path} className="nav-link active">
+                    <Icon type={nav.name}/> {nav.name}
+                </Link>
             )
         )}
     </div>
 )
+
+const Icon = ({type}) => {
+    switch (type) {
+        case 'Product':
+            return <i class="bi bi-cart3"></i>
+        case 'Success':
+            return <i class="bi bi-check-circle"></i>
+        default:
+            return <i class="bi bi-three-dots-vertical"></i>
+    }
+}
 
 export default Navbar

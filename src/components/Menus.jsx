@@ -1,6 +1,7 @@
 import { Component } from "react"
 import axios from "axios"
 import swal from "sweetalert"
+import { rupiah } from "../utils/constants"
 
 class Menus extends Component {
     constructor(props) {
@@ -56,7 +57,7 @@ class Menus extends Component {
                                 title: "Success",
                                 text: `Successfully added ${menu.nama} to cart!`,
                                 icon: "success",
-                                timer: 2000,
+                                timer: 1500,
                                 button: false
                             })
                         }
@@ -92,7 +93,7 @@ class Menus extends Component {
     render = () => (
         <div className="col-12 col-lg-7 my-2">
             <div className="card p-3 border border-secondary shadow-sm">
-                <h2>List Menu</h2>
+                <h3>List Menu</h3>
                 <hr />
                 <div className="row">
                     {
@@ -114,7 +115,7 @@ const Menu = ({menu, addCart}) => (
             <img src={'assets/images/' + menu.category.nama.toLowerCase() + '/' + menu.gambar} alt="foto menu" className="card-img-top" />
             <div className="card-body">
                 <div className="card-title"><b>{menu.kode + ' | ' + menu.nama}</b></div>
-                <div className="card-text">Rp. {menu.harga}</div>
+                <div className="card-text">{rupiah(menu.harga)}</div>
             </div>
         </div>
     </div>
